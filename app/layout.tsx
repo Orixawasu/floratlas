@@ -2,7 +2,16 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageProvider";
-import { siteDescription, siteName, siteUrl } from "@/lib/seo";
+import {
+  bilingualDescription,
+  defaultTitle,
+  siteDescription,
+  siteKeywords,
+  siteName,
+  siteTagline,
+  siteUrl,
+  websiteJsonLd,
+} from "@/lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,23 +31,12 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} · The botanical encyclopedia`,
+    default: defaultTitle,
     template: `%s · ${siteName}`,
   },
-  description: `${siteDescription.en} ${siteDescription.fr}`,
+  description: bilingualDescription,
   applicationName: siteName,
-  keywords: [
-    "plants",
-    "plantes",
-    "botany",
-    "botanique",
-    "encyclopedia",
-    "encyclopédie",
-    "flora",
-    "flore",
-    "species",
-    "espèces",
-  ],
+  keywords: siteKeywords,
   alternates: {
     canonical: "/",
     languages: {
@@ -50,15 +48,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName,
-    title: `${siteName} · The botanical encyclopedia`,
-    description: siteDescription.en,
+    title: defaultTitle,
+    description: `${siteDescription.en} ${siteTagline.en}.`,
     url: siteUrl,
     locale: "en_US",
     alternateLocale: ["fr_FR"],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteName} · The botanical encyclopedia`,
+    title: defaultTitle,
     description: siteDescription.en,
   },
 };
@@ -74,6 +72,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} h-full antialiased`}
       >
         <body className="min-h-full bg-white font-sans text-emerald-950">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+          />
           <LanguageProvider>{children}</LanguageProvider>
         </body>
     </html>

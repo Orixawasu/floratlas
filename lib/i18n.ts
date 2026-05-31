@@ -267,10 +267,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     language: { label: "Language" },
     home: {
-      eyebrow: "FloraDex",
-      title: "Explore the world of plants",
+      eyebrow: "FlorAtlas",
+      title: "Your botanical atlas",
       subtitle:
-        "A modern botanical discovery interface powered by open plant data.",
+        "Map the plant kingdom — explore species, families and regions through open botanical data.",
       cta: "Start exploring",
       searchPlaceholder: "Search for a plant or scientific name",
       featured: "Featured",
@@ -285,7 +285,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       potdTitle: "Today's botanical highlight",
       potdCta: "Discover this plant",
       randomTitle: "Feeling curious?",
-      randomDesc: "Let FloraDex surprise you with a random species.",
+      randomDesc: "Let FlorAtlas surprise you with a random species.",
       randomCta: "Surprise me",
       randomLoading: "Finding a plant",
       recentTitle: "Recently viewed",
@@ -486,7 +486,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     guide: {
       eyebrow: "Getting started",
-      title: "How to explore FloraDex",
+      title: "How to explore FlorAtlas",
       subtitle:
         "A simple guide to navigating the app and understanding botanical terms.",
       navTitle: "Navigating the app",
@@ -495,7 +495,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         {
           emoji: "✨",
           title: "Home",
-          text: "Tap the FloraDex logo anytime to return here. Plant of the day, seasonal highlights, trending species and a random surprise await.",
+          text: "Tap the FlorAtlas logo anytime to return here. Plant of the day, seasonal highlights, trending species and a random surprise await.",
         },
         {
           emoji: "🧭",
@@ -896,10 +896,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     language: { label: "Langue" },
     home: {
-      eyebrow: "FloraDex",
-      title: "Explorez le monde des plantes",
+      eyebrow: "FlorAtlas",
+      title: "Votre atlas botanique",
       subtitle:
-        "Une interface moderne de découverte botanique alimentée par des données ouvertes sur les plantes.",
+        "Cartographiez le règne végétal — explorez espèces, familles et régions grâce à des données botaniques ouvertes.",
       cta: "Commencer l'exploration",
       searchPlaceholder: "Rechercher une plante ou un nom scientifique",
       featured: "À la une",
@@ -914,7 +914,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       potdTitle: "Le coup de cœur botanique du jour",
       potdCta: "Découvrir cette plante",
       randomTitle: "Envie de curiosité ?",
-      randomDesc: "Laissez FloraDex vous surprendre avec une espèce au hasard.",
+      randomDesc: "Laissez FlorAtlas vous surprendre avec une espèce au hasard.",
       randomCta: "Surprenez-moi",
       randomLoading: "Recherche d'une plante",
       recentTitle: "Vu récemment",
@@ -1119,7 +1119,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     guide: {
       eyebrow: "Premiers pas",
-      title: "Comment explorer FloraDex",
+      title: "Comment explorer FlorAtlas",
       subtitle:
         "Un guide simple pour naviguer dans l'application et comprendre les termes botaniques.",
       navTitle: "Naviguer dans l'application",
@@ -1128,7 +1128,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         {
           emoji: "✨",
           title: "Accueil",
-          text: "Cliquez sur le logo FloraDex pour revenir ici : plante du jour, sélections de saison, espèces tendance et surprise aléatoire.",
+          text: "Cliquez sur le logo FlorAtlas pour revenir ici : plante du jour, sélections de saison, espèces tendance et surprise aléatoire.",
         },
         {
           emoji: "🧭",

@@ -6,7 +6,7 @@ import { TraitView } from "@/components/TraitView";
 import { getTrait, traits } from "@/lib/traits";
 import { fetchPlants } from "@/lib/trefle";
 import { dictionaries } from "@/lib/i18n";
-import { siteUrl } from "@/lib/seo";
+import { siteName, siteUrl } from "@/lib/seo";
 import type { TreflePlant } from "@/types/plant";
 
 type TraitPageProps = {
@@ -30,7 +30,7 @@ export async function generateMetadata({
   const url = `${siteUrl}/traits/${trait}`;
   return {
     title: `${en} plants · Plantes ${fr}`,
-    description: `Discover plants with the ${en} trait. Découvrez les plantes ${fr}.`,
+    description: `Discover ${en} plants on ${siteName}. Découvrez les plantes ${fr} sur ${siteName}.`,
     alternates: { canonical: url, languages: { en: url, fr: url, "x-default": url } },
   };
 }

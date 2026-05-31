@@ -13,8 +13,8 @@ export function RecentlyViewed() {
   useEffect(() => {
     const update = () => setPlants(getRecentPlants());
     update();
-    window.addEventListener("floradex-recent-updated", update);
-    return () => window.removeEventListener("floradex-recent-updated", update);
+    window.addEventListener("floratlas-recent-updated", update);
+    return () => window.removeEventListener("floratlas-recent-updated", update);
   }, []);
 
   if (plants.length === 0) {

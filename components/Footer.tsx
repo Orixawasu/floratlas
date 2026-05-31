@@ -63,7 +63,7 @@ export function Footer() {
               className="inline-flex items-center gap-2 text-lg font-semibold tracking-tight text-emerald-950"
             >
               <span aria-hidden="true">🌿</span>
-              FloraDex
+              FlorAtlas
             </Link>
             <p className="max-w-xs text-sm leading-relaxed text-emerald-900/55">
               {t.home.subtitle}
@@ -76,7 +76,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 border-t border-emerald-900/8 pt-6 text-xs text-emerald-900/40">
-          <p>© {new Date().getFullYear()} FloraDex</p>
+          <p>© {new Date().getFullYear()} FlorAtlas</p>
         </div>
       </div>
     </footer>

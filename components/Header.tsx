@@ -71,13 +71,13 @@ export function Header() {
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-4">
         <Link
           href="/"
-          aria-label={`FloraDex — ${t.nav.home}`}
+          aria-label={`FlorAtlas — ${t.nav.home}`}
           className="group flex items-center gap-2 text-xl font-semibold tracking-tight text-emerald-950"
         >
           <span aria-hidden="true" className="text-lg transition group-hover:scale-110">
             🌿
           </span>
-          FloraDex
+          FlorAtlas
         </Link>
 
         <div className="flex items-center gap-2 sm:gap-3">

@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { FamilyView } from "@/components/FamilyView";
 import { deslugifyFamily } from "@/lib/families";
 import { fetchPlantsByFamily } from "@/lib/trefle";
-import { siteUrl } from "@/lib/seo";
+import { siteName, siteUrl } from "@/lib/seo";
 import type { TreflePlant } from "@/types/plant";
 
 type FamilyPageProps = {
@@ -26,7 +26,7 @@ export async function generateMetadata({
       languages: { en: url, fr: url, "x-default": url },
     },
     openGraph: {
-      title: `${name} · FloraDex`,
+      title: `${name} · ${siteName}`,
       description: `Plants from the ${name} family.`,
       url,
       type: "website",

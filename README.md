@@ -1,9 +1,9 @@
-# FloraDex 🌿
+# FlorAtlas 🌿
 
-Modern botanical exploration platform built with **Next.js**, **TypeScript** and **Tailwind CSS**.  
-Discover plants by theme, region, guided paths and scientific taxonomy — powered by [Trefle.io](https://trefle.io/) open data.
+Interactive **botanical atlas** built with **Next.js**, **TypeScript** and **Tailwind CSS**.  
+Explore plants by theme, region, guided paths and scientific taxonomy — powered by [Trefle.io](https://trefle.io/) open data.
 
-**FloraDex** · encyclopédie botanique interactive · EN / FR
+**FlorAtlas** · atlas botanique interactif · EN / FR
 
 ---
 
@@ -17,7 +17,7 @@ Discover plants by theme, region, guided paths and scientific taxonomy — power
 - **Families & traits** — navigation hubs (`/families`, `/traits`)
 - **Glossary & guide** — botanical vocabulary and onboarding
 - **i18n** — English / French
-- **SEO** — metadata, sitemap, robots.txt, JSON-LD
+- **SEO** — metadata, JSON-LD WebSite + SearchAction, sitemap, robots.txt, Open Graph
 
 ---
 
@@ -43,8 +43,8 @@ Discover plants by theme, region, guided paths and scientific taxonomy — power
 ## Setup
 
 ```bash
-git clone https://github.com/Orixawasu/floradex.git
-cd floradex
+git clone https://github.com/Orixawasu/floratlas.git
+cd floratlas
 npm install
 cp .env.example .env.local
 ```
@@ -76,7 +76,7 @@ npm run lint     # ESLint
 1. Import the project on [vercel.com](https://vercel.com) from this repository
 2. Add environment variables:
    - `TREFLE_API_TOKEN`
-   - `NEXT_PUBLIC_SITE_URL` → your production URL
+   - `NEXT_PUBLIC_SITE_URL` → your production URL (e.g. `https://floratlas.vercel.app`)
 3. Deploy
 
 ---
@@ -102,14 +102,14 @@ app/
   explore/      # Themed collections browser
   families/     # Botanical family hubs
   glossary/     # Botanical glossary
-  guide/        # How to use FloraDex
+  guide/        # How to use FlorAtlas
   paths/        # Guided botanical journeys
   plants/       # Plant detail pages
   regions/      # Regional flora explorer
   search/       # Search results
   traits/       # Trait-filtered discovery
 components/     # UI components
-lib/            # API client, i18n, collections, regions, utils
+lib/            # API client, i18n, SEO, collections, regions, utils
 types/          # TypeScript types
 public/         # Static assets
 ```

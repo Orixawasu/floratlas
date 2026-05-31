@@ -6,7 +6,7 @@ import { CollectionView } from "@/components/CollectionView";
 import { collections, getCollectionBySlug } from "@/lib/collections";
 import { fetchPlants } from "@/lib/trefle";
 import { dictionaries } from "@/lib/i18n";
-import { siteUrl } from "@/lib/seo";
+import { siteName, siteUrl } from "@/lib/seo";
 import type { TreflePlant } from "@/types/plant";
 
 type CollectionPageProps = {
@@ -39,7 +39,7 @@ export async function generateMetadata({
       languages: { en: url, fr: url, "x-default": url },
     },
     openGraph: {
-      title: `${en?.title} · FloraDex`,
+      title: `${en?.title} · ${siteName}`,
       description: en?.description,
       url,
       type: "website",

@@ -1,11 +1,11 @@
 {
-  "name": "floradex",
+  "name": "floratlas",
   "version": "0.1.0",
   "private": true,
-  "description": "Modern botanical exploration platform powered by Trefle.io",
+  "description": "Interactive botanical atlas powered by Trefle.io",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Orixawasu/floradex.git"
+    "url": "https://github.com/Orixawasu/floratlas.git"
   },
   "scripts": {
     "dev": "next dev",

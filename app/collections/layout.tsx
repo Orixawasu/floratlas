@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { siteName } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Collections botaniques",
   description:
-    "Editorial botanical collections curated by FloraDex. Collections botaniques éditorialisées par FloraDex.",
+    `Editorial botanical collections curated by ${siteName}. Collections botaniques éditorialisées par ${siteName}.`,
   alternates: { canonical: "/collections" },
 };
 

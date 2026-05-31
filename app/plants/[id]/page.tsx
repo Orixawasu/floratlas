@@ -11,7 +11,7 @@ import { PlantConditions } from "@/components/PlantConditions";
 import { PlantVariants } from "@/components/PlantVariants";
 import { fetchPlantById } from "@/lib/trefle";
 import { getEntityName } from "@/lib/utils";
-import { siteUrl } from "@/lib/seo";
+import { plantPageDescription, siteName, siteUrl } from "@/lib/seo";
 
 type PlantPageProps = {
   params: Promise<{
@@ -28,7 +28,7 @@ export async function generateMetadata({
 
   if (!plant) {
     return {
-      title: "Plant not found · FloraDex",
+      title: `Plant not found · ${siteName}`,
       robots: { index: false },
     };
   }
@@ -37,14 +37,18 @@ export async function generateMetadata({
   const family = getEntityName(plant.family);
   const genus = getEntityName(plant.genus);
 
-  const descriptionEn = `${commonName} (${plant.scientific_name ?? ""}) — family ${family}, genus ${genus}. Discover botanical data on FloraDex.`;
-  const descriptionFr = `${commonName} (${plant.scientific_name ?? ""}) — famille ${family}, genre ${genus}. Découvrez les données botaniques sur FloraDex.`;
+  const descriptions = plantPageDescription(
+    commonName,
+    plant.scientific_name ?? "",
+    family,
+    genus,
+  );
 
   const url = `${siteUrl}/plants/${plant.id}`;
 
   return {
-    title: `${commonName} · ${plant.scientific_name ?? "FloraDex"}`,
-    description: `${descriptionEn} ${descriptionFr}`,
+    title: `${commonName} · ${plant.scientific_name ?? siteName}`,
+    description: `${descriptions.en} ${descriptions.fr}`,
     keywords: [
       commonName,
       plant.scientific_name ?? "",
@@ -65,9 +69,9 @@ export async function generateMetadata({
     },
     openGraph: {
       title: `${commonName} · ${plant.scientific_name ?? ""}`,
-      description: descriptionEn,
+      description: descriptions.en,
       url,
-      siteName: "FloraDex",
+      siteName,
       type: "article",
       locale: "en_US",
       alternateLocale: ["fr_FR"],
@@ -78,7 +82,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: `${commonName} · ${plant.scientific_name ?? ""}`,
-      description: descriptionEn,
+      description: descriptions.en,
       images: plant.image_url ? [plant.image_url] : undefined,
     },
   };
@@ -97,12 +101,16 @@ export default async function PlantPage({ params }: PlantPageProps) {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Thing",
+    "@type": "Taxon",
     name: commonName,
     alternateName: plant.scientific_name ?? undefined,
     image: plant.image_url ?? undefined,
     url: `${siteUrl}/plants/${plant.id}`,
-    additionalType: "https://schema.org/Taxon",
+    isPartOf: {
+      "@type": "WebSite",
+      name: siteName,
+      url: siteUrl,
+    },
   };
 
   return (

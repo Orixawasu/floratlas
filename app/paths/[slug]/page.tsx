@@ -6,7 +6,7 @@ import { PathView } from "@/components/PathView";
 import { getPathBySlug, paths } from "@/lib/paths";
 import { fetchPlants } from "@/lib/trefle";
 import { dictionaries } from "@/lib/i18n";
-import { siteUrl } from "@/lib/seo";
+import { siteName, siteUrl } from "@/lib/seo";
 import type { TreflePlant } from "@/types/plant";
 
 type PathPageProps = {
@@ -33,7 +33,7 @@ export async function generateMetadata({
     description: `${en?.intro} ${fr?.intro}`,
     alternates: { canonical: url, languages: { en: url, fr: url, "x-default": url } },
     openGraph: {
-      title: `${en?.title} · FloraDex`,
+      title: `${en?.title} · ${siteName}`,
       description: en?.intro,
       url,
       type: "article",

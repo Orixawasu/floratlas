@@ -11,7 +11,7 @@ import {
 } from "@/lib/regions";
 import { fetchPlantsByDistribution, fetchPlants } from "@/lib/trefle";
 import { dictionaries } from "@/lib/i18n";
-import { siteUrl } from "@/lib/seo";
+import { siteName, siteUrl } from "@/lib/seo";
 import type { TreflePlant } from "@/types/plant";
 
 type RegionPageProps = {
@@ -41,7 +41,7 @@ export async function generateMetadata({
       languages: { en: url, fr: url, "x-default": url },
     },
     openGraph: {
-      title: `${en?.name} · FloraDex`,
+      title: `${en?.name} · ${siteName}`,
       description: en?.overview,
       url,
       type: "website",

@@ -8,7 +8,7 @@ export type RecentPlant = {
   viewedAt?: number;
 };
 
-const STORAGE_KEY = "floradex-recent";
+const STORAGE_KEY = "floratlas-recent";
 const MAX_ITEMS = 8;
 
 export function getRecentPlants(): RecentPlant[] {
@@ -41,5 +41,5 @@ export function addRecentPlant(plant: TreflePlant) {
   const existing = getRecentPlants().filter((item) => item.id !== plant.id);
   const next = [entry, ...existing].slice(0, MAX_ITEMS);
   window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-  window.dispatchEvent(new Event("floradex-recent-updated"));
+  window.dispatchEvent(new Event("floratlas-recent-updated"));
 }

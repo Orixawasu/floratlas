@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
+import { siteDescription, siteName } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Guide · Comment explorer",
   description:
-    "A simple guide to navigating FloraDex and understanding botanical terms. Un guide simple pour naviguer dans FloraDex et comprendre les termes botaniques.",
+    `A simple guide to navigating ${siteName} and understanding botanical terms. Un guide simple pour naviguer dans ${siteName} et comprendre les termes botaniques.`,
+  openGraph: {
+    title: `${siteName} · Guide`,
+    description: siteDescription.en,
+  },
   alternates: { canonical: "/guide" },
 };
 

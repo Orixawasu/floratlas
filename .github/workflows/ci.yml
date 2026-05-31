@@ -12,7 +12,7 @@ jobs:
 
     env:
       TREFLE_API_TOKEN: ${{ secrets.TREFLE_API_TOKEN }}
-      NEXT_PUBLIC_SITE_URL: https://floradex.vercel.app
+      NEXT_PUBLIC_SITE_URL: https://floratlas.vercel.app
 
     steps:
       - uses: actions/checkout@v4
