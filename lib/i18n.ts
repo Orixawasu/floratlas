@@ -14,6 +14,14 @@ type Dictionary = {
     paths: string;
     guide: string;
     regions: string;
+    home: string;
+  };
+  footer: {
+    exploreGroup: string;
+    placesGroup: string;
+    learnGroup: string;
+    allCollections: string;
+    france: string;
   };
   language: {
     label: string;
@@ -248,6 +256,14 @@ export const dictionaries: Record<Locale, Dictionary> = {
       paths: "Paths",
       guide: "Guide",
       regions: "Regions",
+      home: "Home",
+    },
+    footer: {
+      exploreGroup: "Explore",
+      placesGroup: "By region",
+      learnGroup: "Learn",
+      allCollections: "All collections",
+      france: "France",
     },
     language: { label: "Language" },
     home: {
@@ -478,8 +494,8 @@ export const dictionaries: Record<Locale, Dictionary> = {
       steps: [
         {
           emoji: "✨",
-          title: "Discover",
-          text: "Start here if you don't know what to look for. Get a plant of the day, trending species, a random surprise and curated highlights.",
+          title: "Home",
+          text: "Tap the FloraDex logo anytime to return here. Plant of the day, seasonal highlights, trending species and a random surprise await.",
         },
         {
           emoji: "🧭",
@@ -488,8 +504,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
         },
         {
           emoji: "🗂️",
-          title: "Explore & Collections",
+          title: "Explore",
           text: "Browse curated themes (desert, tropical, Japan…). Each collection is a mini exhibition with facts and featured plants.",
+        },
+        {
+          emoji: "🗺️",
+          title: "Regions",
+          text: "Explore flora by geography — France, Europe, Mediterranean and more.",
         },
         {
           emoji: "🔍",
@@ -864,6 +885,14 @@ export const dictionaries: Record<Locale, Dictionary> = {
       paths: "Parcours",
       guide: "Guide",
       regions: "Régions",
+      home: "Accueil",
+    },
+    footer: {
+      exploreGroup: "Explorer",
+      placesGroup: "Par région",
+      learnGroup: "Comprendre",
+      allCollections: "Toutes les collections",
+      france: "France",
     },
     language: { label: "Langue" },
     home: {
@@ -1098,8 +1127,8 @@ export const dictionaries: Record<Locale, Dictionary> = {
       steps: [
         {
           emoji: "✨",
-          title: "Découvrir",
-          text: "Commencez ici si vous ne savez pas quoi chercher : plante du jour, espèces tendance, surprise aléatoire et sélections.",
+          title: "Accueil",
+          text: "Cliquez sur le logo FloraDex pour revenir ici : plante du jour, sélections de saison, espèces tendance et surprise aléatoire.",
         },
         {
           emoji: "🧭",
@@ -1108,8 +1137,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
         },
         {
           emoji: "🗂️",
-          title: "Explorer & Collections",
+          title: "Explorer",
           text: "Parcourez des thèmes choisis (désert, tropical, Japon…). Chaque collection est une mini-exposition avec faits et plantes phares.",
+        },
+        {
+          emoji: "🗺️",
+          title: "Régions",
+          text: "Explorez la flore par géographie — France, Europe, Méditerranée et plus encore.",
         },
         {
           emoji: "🔍",

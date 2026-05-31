@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FloraDex 🌿
 
-## Getting Started
+Modern botanical exploration platform built with **Next.js**, **TypeScript** and **Tailwind CSS**.  
+Discover plants by theme, region, guided paths and scientific taxonomy — powered by [Trefle.io](https://trefle.io/) open data.
 
-First, run the development server:
+**FloraDex** · encyclopédie botanique interactive · EN / FR
+
+---
+
+## Features
+
+- **Discover hub** — plant of the day, seasonal highlights, trending species, random discovery
+- **Explore** — 10 curated collections (desert, tropical, indoor, edible…)
+- **Regions** — flora by geography (France, Europe, Mediterranean, Corsica…)
+- **Paths** — guided narrative botanical journeys
+- **Plant detail pages** — taxonomy, growing conditions, seasonality, toxicity, related species
+- **Families & traits** — navigation hubs (`/families`, `/traits`)
+- **Glossary & guide** — botanical vocabulary and onboarding
+- **i18n** — English / French
+- **SEO** — metadata, sitemap, robots.txt, JSON-LD
+
+---
+
+## Stack
+
+| Layer | Tech |
+|-------|------|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| Data | Trefle.io API (server-side only) |
+| Deploy | Vercel-ready |
+
+---
+
+## Prerequisites
+
+- Node.js 18+
+- [Trefle.io](https://trefle.io/) API token
+
+---
+
+## Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/YOUR_USERNAME/floradex.git
+cd floradex
+npm install
+cp .env.example .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Edit `.env.local`:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+TREFLE_API_TOKEN=your_token_here
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+> The API token is **only** used in server routes (`app/api/*`, Server Components). It is never exposed to the browser.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run dev      # development server → http://localhost:3000
+npm run build    # production build
+npm run start    # run production build locally
+npm run lint     # ESLint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Push this repository to GitHub
+2. Import the project on [vercel.com](https://vercel.com)
+3. Add environment variables:
+   - `TREFLE_API_TOKEN`
+   - `NEXT_PUBLIC_SITE_URL` → your production URL
+4. Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Project structure
+
+```
+app/
+  api/          # Server routes (Trefle proxy)
+  collections/  # Collection landing pages
+  explore/      # Themed collections browser
+  families/     # Botanical family hubs
+  glossary/     # Botanical glossary
+  guide/        # How to use FloraDex
+  paths/        # Guided botanical journeys
+  plants/       # Plant detail pages
+  regions/      # Regional flora explorer
+  search/       # Search results
+  traits/       # Trait-filtered discovery
+components/     # UI components
+lib/            # API client, i18n, collections, regions, utils
+types/          # TypeScript types
+public/         # Static assets
+```
+
+---
+
+## License
+
+Portfolio project — all rights reserved unless otherwise specified.
