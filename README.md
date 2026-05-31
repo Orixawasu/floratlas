@@ -43,7 +43,7 @@ Discover plants by theme, region, guided paths and scientific taxonomy — power
 ## Setup
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/floradex.git
+git clone https://github.com/Orixawasu/floradex.git
 cd floradex
 npm install
 cp .env.example .env.local
@@ -73,12 +73,23 @@ npm run lint     # ESLint
 
 ## Deploy on Vercel
 
-1. Push this repository to GitHub
-2. Import the project on [vercel.com](https://vercel.com)
-3. Add environment variables:
+1. Import the project on [vercel.com](https://vercel.com) from this repository
+2. Add environment variables:
    - `TREFLE_API_TOKEN`
    - `NEXT_PUBLIC_SITE_URL` → your production URL
-4. Deploy
+3. Deploy
+
+---
+
+## CI (GitHub Actions)
+
+Every push to `main` runs ESLint and a production build.
+
+Add this secret in **Settings → Secrets and variables → Actions**:
+
+| Secret | Description |
+|--------|-------------|
+| `TREFLE_API_TOKEN` | Your [Trefle.io](https://trefle.io/) API token (required for build) |
 
 ---
 
