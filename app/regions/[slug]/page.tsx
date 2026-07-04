@@ -78,7 +78,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
     console.error("Region fetch error", error);
   }
 
-  const children = getChildren(region.slug);
+  const childRegions = getChildren(region.slug);
   const related: RegionDef[] = (region.related ?? [])
     .map((s) => getRegionBySlug(s))
     .filter((r): r is RegionDef => Boolean(r));
@@ -94,7 +94,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
           dataMode={dataMode}
           total={total}
           plants={plants}
-          children={children}
+          childRegions={childRegions}
           related={related}
         />
       </main>

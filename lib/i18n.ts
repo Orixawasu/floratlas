@@ -50,6 +50,14 @@ type Dictionary = {
     recentTitle: string;
     recentSubtitle: string;
     browseCollections: string;
+    flowerHint: string;
+    flowerTag: string;
+    flowerName: string;
+    flowerFamily: string;
+    flowerDesc: string;
+    flowerCta: string;
+    flowerHref: string;
+    flowerClose: string;
   };
   searchBar: {
     label: string;
@@ -291,6 +299,15 @@ export const dictionaries: Record<Locale, Dictionary> = {
       recentTitle: "Recently viewed",
       recentSubtitle: "Pick up your exploration where you left off.",
       browseCollections: "Browse collections",
+      flowerHint: "Drag to rotate · tap the plant to discover it",
+      flowerTag: "Species",
+      flowerName: "Wild orchid",
+      flowerFamily: "Orchidaceae",
+      flowerDesc:
+        "A delicate low-poly bloom — soon linked to its full FlorAtlas record.",
+      flowerCta: "View species sheet →",
+      flowerHref: "/search?q=Orchidaceae",
+      flowerClose: "Close",
     },
     searchBar: {
       label: "Search plants",
@@ -920,6 +937,15 @@ export const dictionaries: Record<Locale, Dictionary> = {
       recentTitle: "Vu récemment",
       recentSubtitle: "Reprenez votre exploration là où vous l'aviez laissée.",
       browseCollections: "Parcourir les collections",
+      flowerHint: "Faites pivoter · touchez la plante pour la découvrir",
+      flowerTag: "Espèce",
+      flowerName: "Orchidée sauvage",
+      flowerFamily: "Orchidaceae",
+      flowerDesc:
+        "Une fleur low-poly délicate — bientôt reliée à sa fiche FlorAtlas complète.",
+      flowerCta: "Voir la fiche →",
+      flowerHref: "/search?q=Orchidaceae",
+      flowerClose: "Fermer",
     },
     searchBar: {
       label: "Rechercher des plantes",

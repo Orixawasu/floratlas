@@ -19,7 +19,7 @@ type RegionViewProps = {
   dataMode: DataMode;
   total: number;
   plants: TreflePlant[];
-  children: RegionDef[];
+  childRegions: RegionDef[];
   related: RegionDef[];
 };
 
@@ -30,7 +30,7 @@ export function RegionView({
   dataMode,
   total,
   plants,
-  children,
+  childRegions,
   related,
 }: RegionViewProps) {
   const { t } = useI18n();
@@ -127,12 +127,12 @@ export function RegionView({
         )}
       </section>
 
-      {children.length > 0 && (
+      {childRegions.length > 0 && (
         <section className="space-y-5">
           <h2 className="text-2xl font-semibold text-emerald-950">
             {t.regionsMeta.subregionsTitle}
           </h2>
-          <RegionsGrid items={children} small />
+          <RegionsGrid items={childRegions} small />
         </section>
       )}
 

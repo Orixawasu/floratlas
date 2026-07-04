@@ -13,13 +13,14 @@ type RelatedPlantsProps = {
 
 function useRelated(query: string, excludeId: number) {
   const [plants, setPlants] = useState<TreflePlant[]>([]);
+  const enabled = Boolean(query && query !== "—");
 
   useEffect(() => {
-    let active = true;
-    if (!query || query === "—") {
-      setPlants([]);
+    if (!enabled) {
       return;
     }
+
+    let active = true;
 
     fetch(`/api/search?q=${encodeURIComponent(query)}`)
       .then((response) => (response.ok ? response.json() : null))
@@ -41,7 +42,11 @@ function useRelated(query: string, excludeId: number) {
     return () => {
       active = false;
     };
-  }, [query, excludeId]);
+  }, [query, excludeId, enabled]);
+
+  if (!enabled) {
+    return [];
+  }
 
   return plants;
 }

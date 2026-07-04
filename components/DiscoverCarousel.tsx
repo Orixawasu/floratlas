@@ -20,12 +20,30 @@ export function DiscoverCarousel({
   query,
   loadingLabel,
 }: DiscoverCarouselProps) {
+  return (
+    <DiscoverCarouselBody
+      key={query}
+      emoji={emoji}
+      title={title}
+      subtitle={subtitle}
+      query={query}
+      loadingLabel={loadingLabel}
+    />
+  );
+}
+
+function DiscoverCarouselBody({
+  emoji,
+  title,
+  subtitle,
+  query,
+  loadingLabel,
+}: DiscoverCarouselProps) {
   const [plants, setPlants] = useState<TreflePlant[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let active = true;
-    setLoading(true);
     fetch(`/api/search?q=${encodeURIComponent(query)}`)
       .then((response) => (response.ok ? response.json() : null))
       .then((data: TreflePaginatedResponse<TreflePlant> | null) => {
