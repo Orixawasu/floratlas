@@ -46,7 +46,7 @@ export const HOME_HERO_VARIANTS: HomeHeroVariant[] = [
     modelUrl: "/models/orchid.glb",
     withGrass: false,
     targetHeight: 0.62,
-    plantId: 71320,
+    plantId: 68824,
     camera: { position: [0.5, 0.38, 1.05], target: [0, 0.28, 0] },
   },
   {
