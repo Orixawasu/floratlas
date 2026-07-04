@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { FlowerViewer } from "@/components/home/FlowerViewer";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SearchBar } from "@/components/SearchBar";
@@ -68,53 +68,7 @@ export default function Home() {
               </button>
             </div>
           </div>
-          <div className="relative h-[420px]">
-            <Link
-              href="/search?q=Monstera+deliciosa"
-              className="absolute left-6 top-6 w-56 rotate-[-6deg] rounded-3xl border border-white/60 bg-white/70 p-5 shadow-[0_25px_70px_rgba(15,23,42,0.12)] backdrop-blur-md transition hover:-translate-y-1 hover:rotate-0 hover:shadow-[0_30px_80px_rgba(15,23,42,0.18)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-900"
-            >
-              <p className="flex items-center gap-1.5 text-xs uppercase tracking-[0.2em] text-emerald-900/40">
-                <span aria-hidden="true">🌿</span>
-                {t.home.featured}
-              </p>
-              <p className="mt-3 text-lg font-semibold text-emerald-950">
-                Monstera deliciosa
-              </p>
-              <p className="text-sm italic text-emerald-900/50">
-                {t.home.swissCheese}
-              </p>
-            </Link>
-            <Link
-              href="/collections/tropical-plants"
-              className="absolute right-4 top-24 w-60 rotate-[4deg] rounded-3xl border border-white/60 bg-white/70 p-5 shadow-[0_25px_70px_rgba(15,23,42,0.12)] backdrop-blur-md transition hover:-translate-y-1 hover:rotate-0 hover:shadow-[0_30px_80px_rgba(15,23,42,0.18)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-900"
-            >
-              <p className="flex items-center gap-1.5 text-xs uppercase tracking-[0.2em] text-emerald-900/40">
-                <span aria-hidden="true">🌴</span>
-                {t.home.collection}
-              </p>
-              <p className="mt-3 text-lg font-semibold text-emerald-950">
-                {t.home.tropicalCanopies}
-              </p>
-              <p className="text-sm text-emerald-900/50">
-                {t.home.tropicalCanopiesDesc}
-              </p>
-            </Link>
-            <Link
-              href="/search?q=Nepenthes+alata"
-              className="absolute bottom-6 left-16 w-64 rotate-[1deg] rounded-3xl border border-white/60 bg-white/70 p-5 shadow-[0_25px_70px_rgba(15,23,42,0.12)] backdrop-blur-md transition hover:-translate-y-1 hover:rotate-0 hover:shadow-[0_30px_80px_rgba(15,23,42,0.18)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-900"
-            >
-              <p className="flex items-center gap-1.5 text-xs uppercase tracking-[0.2em] text-emerald-900/40">
-                <span aria-hidden="true">✨</span>
-                {t.home.rareFind}
-              </p>
-              <p className="mt-3 text-lg font-semibold text-emerald-950">
-                Nepenthes alata
-              </p>
-              <p className="text-sm italic text-emerald-900/50">
-                {t.home.pitcherPlant}
-              </p>
-            </Link>
-          </div>
+          <FlowerViewer />
         </section>
 
         <PlantOfTheDay />
