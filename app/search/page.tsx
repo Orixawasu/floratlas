@@ -21,8 +21,10 @@ function SearchPageContent() {
   const searchParams = useSearchParams();
   const { t } = useI18n();
   const initialQuery = searchParams.get("q") ?? "";
-  const [query, setQuery] = useState("");
-  const [status, setStatus] = useState<SearchStatus>("idle");
+  const [query, setQuery] = useState(initialQuery);
+  const [status, setStatus] = useState<SearchStatus>(
+    initialQuery ? "loading" : "idle",
+  );
   const [plants, setPlants] = useState<TreflePlant[]>([]);
 
   const handleSearch = useCallback(async () => {
@@ -49,16 +51,37 @@ function SearchPageContent() {
   }, [query]);
 
   useEffect(() => {
-    if (initialQuery && query === "") {
-      setQuery(initialQuery);
+    if (!initialQuery.trim()) {
+      return;
     }
-  }, [initialQuery, query]);
 
-  useEffect(() => {
-    if (initialQuery && query === initialQuery) {
-      handleSearch();
-    }
-  }, [handleSearch, initialQuery, query]);
+    let active = true;
+
+    fetch(`/api/search?q=${encodeURIComponent(initialQuery)}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Search failed");
+        }
+        return response.json() as Promise<TreflePaginatedResponse<TreflePlant>>;
+      })
+      .then((data) => {
+        if (!active) {
+          return;
+        }
+        setPlants(data.data ?? []);
+        setStatus("success");
+      })
+      .catch((fetchError) => {
+        console.error(fetchError);
+        if (active) {
+          setStatus("error");
+        }
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [initialQuery]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#f7fbf7] via-white to-[#eef6ff]">

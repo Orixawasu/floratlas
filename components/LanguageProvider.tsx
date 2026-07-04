@@ -27,16 +27,20 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 const STORAGE_KEY = "floratlas-locale";
 
+function readStoredLocale(): Locale {
+  if (typeof window === "undefined") {
+    return defaultLocale;
+  }
+  const stored = window.localStorage.getItem(STORAGE_KEY) as Locale | null;
+  return stored && locales.includes(stored) ? stored : defaultLocale;
+}
+
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(defaultLocale);
+  const [locale, setLocaleState] = useState<Locale>(readStoredLocale);
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY) as Locale | null;
-    if (stored && locales.includes(stored)) {
-      setLocaleState(stored);
-      document.documentElement.lang = stored;
-    }
-  }, []);
+    document.documentElement.lang = locale;
+  }, [locale]);
 
   const setLocale = useCallback((next: Locale) => {
     setLocaleState(next);
