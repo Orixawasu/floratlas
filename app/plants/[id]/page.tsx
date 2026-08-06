@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { PlantDetail } from "@/components/PlantDetail";
+import { PlantGallery } from "@/components/PlantGallery";
 import { RecordView } from "@/components/RecordView";
 import { RelatedPlants } from "@/components/RelatedPlants";
 import { WhyMatters } from "@/components/WhyMatters";
@@ -123,6 +124,7 @@ export default async function PlantPage({ params }: PlantPageProps) {
       <Header />
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-14 px-6 pb-20 pt-10">
         <PlantDetail plant={plant} />
+        <PlantGallery plant={plant} />
         <div className="grid gap-6 lg:grid-cols-2">
           <WhyMatters plant={plant} />
           <BotanicalContext plant={plant} />

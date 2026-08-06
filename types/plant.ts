@@ -73,7 +73,16 @@ export type TrefleSpeciesDetail = {
   flower?: TrefleFlower;
   foliage?: TrefleFoliage;
   common_names?: Record<string, string[]> | null;
+  images?: TrefleImagesByCategory | null;
 };
+
+export type TrefleImage = {
+  id?: number;
+  image_url?: string | null;
+  copyright?: string | null;
+};
+
+export type TrefleImagesByCategory = Record<string, TrefleImage[]>;
 
 export type TrefleTaxonRef = {
   id: number;
@@ -101,7 +110,7 @@ export type TreflePlant = {
   vegetable?: boolean | null;
   edible?: boolean | null;
   common_names?: Record<string, string[]> | null;
-  images?: Record<string, { id?: number; image_url?: string }[]> | null;
+  images?: TrefleImagesByCategory | null;
   distribution?: TrefleDistribution;
   main_species?: TrefleSpeciesDetail | null;
   subspecies?: TrefleTaxonRef[] | null;
