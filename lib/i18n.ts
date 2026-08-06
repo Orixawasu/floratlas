@@ -161,6 +161,21 @@ type Dictionary = {
     subspecies: string;
     varieties: string;
   };
+  gallery: {
+    title: string;
+    subtitle: string;
+    all: string;
+    photosCount: string;
+    photoSingular: string;
+    showMore: string;
+    showLess: string;
+    close: string;
+    previous: string;
+    next: string;
+    counter: string;
+    empty: string;
+    categories: Record<string, string>;
+  };
   months: string[];
   traitLabels: Record<string, string>;
   traitsPage: {
@@ -460,6 +475,34 @@ export const dictionaries: Record<Locale, Dictionary> = {
       taxonomySubtitle: "Recognized variations within this species.",
       subspecies: "Subspecies",
       varieties: "Varieties",
+    },
+    gallery: {
+      title: "Image gallery",
+      subtitle: "Browse photos by part of the plant.",
+      all: "All",
+      photosCount: "{count} photos",
+      photoSingular: "{count} photo",
+      showMore: "Show all {count} photos",
+      showLess: "Show less",
+      close: "Close",
+      previous: "Previous image",
+      next: "Next image",
+      counter: "{current} of {total}",
+      empty: "No images available for this species yet.",
+      categories: {
+        flower: "Flower",
+        leaf: "Leaf",
+        habit: "Habit",
+        fruit: "Fruit",
+        bark: "Bark",
+        seed: "Seed",
+        trunk: "Trunk",
+        stem: "Stem",
+        bud: "Bud",
+        form: "Form",
+        sheath: "Sheath",
+        other: "Other",
+      },
     },
     months: [
       "Jan",
@@ -1102,6 +1145,34 @@ export const dictionaries: Record<Locale, Dictionary> = {
       taxonomySubtitle: "Les variations reconnues au sein de cette espèce.",
       subspecies: "Sous-espèces",
       varieties: "Variétés",
+    },
+    gallery: {
+      title: "Galerie d'images",
+      subtitle: "Parcourez les photos par partie de la plante.",
+      all: "Toutes",
+      photosCount: "{count} photos",
+      photoSingular: "{count} photo",
+      showMore: "Voir les {count} photos",
+      showLess: "Voir moins",
+      close: "Fermer",
+      previous: "Image précédente",
+      next: "Image suivante",
+      counter: "{current} sur {total}",
+      empty: "Aucune image disponible pour cette espèce pour le moment.",
+      categories: {
+        flower: "Fleur",
+        leaf: "Feuille",
+        habit: "Port",
+        fruit: "Fruit",
+        bark: "Écorce",
+        seed: "Graine",
+        trunk: "Tronc",
+        stem: "Tige",
+        bud: "Bourgeon",
+        form: "Silhouette",
+        sheath: "Gaine",
+        other: "Autre",
+      },
     },
     months: [
       "Janv.",
