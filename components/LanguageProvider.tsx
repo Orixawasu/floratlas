@@ -6,7 +6,7 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState,
+  useSyncExternalStore,
 } from "react";
 import {
   defaultLocale,
@@ -27,25 +27,67 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 const STORAGE_KEY = "floratlas-locale";
 
+const listeners = new Set<() => void>();
+let cachedLocale: Locale | null = null;
+
 function readStoredLocale(): Locale {
-  if (typeof window === "undefined") {
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY) as Locale | null;
+    return stored && locales.includes(stored) ? stored : defaultLocale;
+  } catch {
     return defaultLocale;
   }
-  const stored = window.localStorage.getItem(STORAGE_KEY) as Locale | null;
-  return stored && locales.includes(stored) ? stored : defaultLocale;
+}
+
+function subscribe(callback: () => void) {
+  listeners.add(callback);
+  const onStorage = (event: StorageEvent) => {
+    if (event.key === STORAGE_KEY) {
+      cachedLocale = readStoredLocale();
+      callback();
+    }
+  };
+  window.addEventListener("storage", onStorage);
+  return () => {
+    listeners.delete(callback);
+    window.removeEventListener("storage", onStorage);
+  };
+}
+
+function getSnapshot(): Locale {
+  if (cachedLocale === null) {
+    cachedLocale = readStoredLocale();
+  }
+  return cachedLocale;
+}
+
+function getServerSnapshot(): Locale {
+  return defaultLocale;
+}
+
+function storeLocale(next: Locale) {
+  cachedLocale = next;
+  try {
+    window.localStorage.setItem(STORAGE_KEY, next);
+  } catch {
+    // ignore write errors (e.g. private mode)
+  }
+  listeners.forEach((listener) => listener());
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(readStoredLocale);
+  const locale = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot,
+  );
 
   useEffect(() => {
     document.documentElement.lang = locale;
   }, [locale]);
 
   const setLocale = useCallback((next: Locale) => {
-    setLocaleState(next);
-    window.localStorage.setItem(STORAGE_KEY, next);
-    document.documentElement.lang = next;
+    storeLocale(next);
   }, []);
 
   const value = useMemo<LanguageContextValue>(
